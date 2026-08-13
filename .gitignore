@@ -45,5 +45,15 @@ docs/
 # translation temp files
 po/*~
 
+# add gitignore files
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+data/
+images/
+*.csv
+.positai
+
 # RStudio Connect folder
 rsconnect/
