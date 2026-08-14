@@ -55,5 +55,9 @@ images/
 *.csv
 .positai
 
+# ignore folders
+
+*/
+
 # RStudio Connect folder
 rsconnect/
