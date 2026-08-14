@@ -216,3 +216,38 @@ write.csv(
 
 
 
+
+# Noise -------------------------------------------------------------------
+
+# Select rows
+noi <- id17 %>%
+  filter(MANUAL.ID == "Noise")
+
+# random 100
+
+set.seed(14)  
+
+noi_100 <- noi %>%
+  slice_sample(n = 100)
+
+# Create output folder
+out_folder <- file.path("C:/Users/mapa/OneDrive - Norwegian University of Life Sciences/Documents/R for data/Test_data", "NOISE")
+dir.create(out_folder, recursive = TRUE, showWarnings = FALSE)
+
+# Copy the corresponding files
+file.copy(
+  from = file.path(noi_100$OUTDIR, noi_100$OUT.FILE.FS),
+  to = file.path(out_folder, noi_100$OUT.FILE.FS),
+  overwrite = FALSE
+)
+
+# Save the subset of the CSV with ALL columns
+write.csv(
+  noi_100,
+  file.path(out_folder, "id_noise.csv"),
+  row.names = FALSE
+)
+
+
+
+
